@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="newsForm" (ngSubmit)="onSubmit(newsForm)" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="Title">Title</label>
+            <input formControlName="title" class="form-control" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="NewsType">News type</label>
+            <select formControlName="newsType" class="form-control">
+              <option value="News">News</option>
+              <option value="Articles">Articles</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="Description">Description</label>
+          <textarea formControlName="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="ImageAuthor">Author of image</label>
+          <input formControlName="imageAuthor" class="form-control" />
+        </div>
+        <div class="form-group">
+          <app-news-image (onUploadFinished)="uploadFinished($event)"></app-news-image>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary w-100">Create news</button>
+      </div>
+    </form>
+  </div>
+</div>
