@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h3 class="fw-bold">{{news.title}}</h3>
+    <br /><br />
+    <div class="container text-center border-left rounded">
+      <img [src]="'data:image/jpeg;base64,' + news.imageNews" style="object-fit:contain;" />
+    </div>
+    <br />
+    <span class="text-black-50 text-center margin">Image author {{news.imageAuthor}}</span>
+    <div class="container">
+      {{news.description}}
+    </div>
+    <div class="container">
+      Published {{news.publishedDate}}<br />
+      Author {{news.user.firstName}} {{news.user.lastName}}
+    </div>
+  </div>
+</div>

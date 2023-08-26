@@ -1,0 +1,204 @@
+<div class="container">
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit(propertyForm)">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select formControlName="type" class="form-control">
+                  <option value="кирпичный">Brick</option>
+                  <option value="панельный">Panel</option>
+                  <option value="монолитный">Monolitic</option>
+                  <option value="иное">Different</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6 mb-4">
+              <div class="form-group">
+                <label for="propertyType">Year</label>
+                <input formControlName="year" class="form-control">
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="roomNumber">Area</label>
+                <input formControlName="area" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="price">Real floor</label>
+                <input formControlName="real_floor" class="form-control" />
+
+              </div>
+              <div class="form-group">
+                <label>From floor</label>
+                <input formControlName="from_floor" class="form-control" />
+              </div>
+            </div>
+            </div>
+          <div class="row mt-4">
+            <div class="row">
+              <div class="form-group">
+                <label for="residentialComplex">Residential complex</label>
+                <select formControlName="ResidentialComplex" class="form-control">
+                  <option *ngFor="let residentialComplex of residentialComplexes" [value]="residentialComplex.residentialComplexName">{{residentialComplex.residentialComplexName}}</option>
+                </select>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="condition">Condition</label>
+                <select formControlName="Condition" class="form-control">
+                  <option value="">Select condition</option>
+                  <option value="хорошее">Good</option>
+                  <option value="среднее">Average</option>
+                  <option value="требует ремонта">Requires repair</option>
+                  <option value="свободная планировка">Free layout</option>
+                  <option value="черновая отделка">Rough finish</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Telephone</label>
+                <select formControlName="Telephone" class="form-control">
+                  <option value="">Select telephone</option>
+                  <option value="отдельный">Separate</option>
+                  <option value="блокиратор">Blocker</option>
+                  <option value="есть возможность подключения">It is possible to connect</option>
+                  <option value="нет">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="internet">Internet</label>
+                <select formControlName="Internet" class="form-control">
+                  <option value="">Select internet</option>
+                  <option value="ADSL">ADSL</option>
+                  <option value="через TV кабель">Via TV cable</option>
+                  <option value="проводной">Wired</option>
+                  <option value="оптика">Optics</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="bathroom">Bathroom</label>
+                <select formControlName="Bathroom" class="form-control">
+                  <option value="">Select bathroom</option>
+                  <option value="раздельный">Separate</option>
+                  <option value="совмещенный">Combined</option>
+                  <option value="2 с/у и более">2 bathrooms and more</option>
+                  <option value="нет">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="security">Security</label>
+                <select formControlName="Security" class="form-control">
+                  <option value="">select security</option>
+                  <option value="решетки на окнах">Bars on the windows</option>
+                  <option value="домофон">Intercom</option>
+                  <option value="сигнализация">Alarm system</option>
+                  <option value="видеодомофон">Video intercom</option>
+                  <option value="охрана">Security</option>
+                  <option value="кодовый замок">Combination lock</option>
+                  <option value="видеонаблюдение">Video surveillance</option>
+                  <option value="консьерж">Concierge</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="balcony">Balcony</label>
+                    <select formControlName="Balcony" class="form-control">
+                      <option value="">Select balcony</option>
+                      <option value="балкон">Balcony</option>
+                      <option value="лоджия">Loggia</option>
+                      <option value="балкон и лоджия">Balcony and loggia</option>
+                      <option value="несколько балконов или лоджий">Several balconies and loggias</option>
+                    </select>
+                    <span class="text-danger"></span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Balcony glazed</label>
+                    <select formControlName="BalconyGlazed" class="form-control">
+                      <option value="нет">No</option>
+                      <option value="да">Yes</option>
+                    </select>
+                    <span class="text-danger"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label>Door</label>
+                  <select formControlName="Door" class="form-control">
+                    <option value="">Select door</option>
+                    <option value="деревянная">Wooden</option>
+                    <option value="металлическая">Metal</option>
+                    <option value="бронированная">Armored</option>
+                  </select>
+                  <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                  <label>Parking</label>
+                  <select formControlName="Parking" class="form-control">
+                    <option value="">Select parking</option>
+                    <option value="паркинг">Parking</option>
+                    <option value="гараж">Garage</option>
+                    <option value="рядом охраняемая стоянка">There is a guarded parking lot nearby</option>
+                  </select>
+                  <span class="text-danger"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="form-group">
+                  <label>Property furnished</label>
+                  <select formControlName="PropertyFurnished" class="form-control">
+                    <option value="">Select property furnished</option>
+                    <option value="полностью">Completely</option>
+                    <option value="частично">Partly</option>
+                    <option value="без мебели">Unfurnished</option>
+                  </select>
+                  <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                  <label>Floor</label>
+                  <select formControlName="Floor" class="form-control">
+                    <option value="">Select floor</option>
+                    <option value="линолеум">Linoleum</option>
+                    <option value="паркет">Parquet</option>
+                    <option value="ламинат">Laminate</option>
+                    <option value="дерево">Wood</option>
+                    <option value="ковролан">Carpet</option>
+                    <option value="плитка">Tile</option>
+                    <option value="пробковый">Cork</option>
+                  </select>
+                  <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                  <label>Former dormitory</label>
+                  <select formControlName="FormarDormitory" class="form-control">
+                    <option value="нет">No</option>
+                    <option value="да">Yes</option>
+                  </select>
+                  <span class="text-danger"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div class="form-group">
+      <button type="submit" class="btn border">Predict price of house</button>
+      <span *ngIf="priceOfProperty != 0">Price {{priceOfProperty}}</span>
+    </div>
+  </form>
+</div>

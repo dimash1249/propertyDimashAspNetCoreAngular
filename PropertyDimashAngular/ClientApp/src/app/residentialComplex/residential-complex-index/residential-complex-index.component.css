@@ -1,0 +1,12 @@
+.residential-complex {
+    text-decoration: none;
+    color: black;
+    transition: all .2s ease-in-out;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.residential-complex:hover{
+    border-color: #badc82;
+    transform: scale(1.06);
+}

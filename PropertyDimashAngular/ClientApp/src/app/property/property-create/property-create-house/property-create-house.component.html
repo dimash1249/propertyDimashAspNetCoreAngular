@@ -1,0 +1,296 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit(propertyForm)">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select formControlName="type" class="form-control">
+              <option value="Sell">Sell</option>
+              <option value="To rent out">To rent out</option>
+              <option value="To rent">To rent</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6 mb-4">
+          <div class="form-group">
+            <label for="propertyType"></label>
+            <select formControlName="propertyType" class="form-control disabled">
+              <option value="Flat">Flat</option>
+              <option value="House">House</option>
+              <option value="Commercial property">Commercial property</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="roomNumber"></label>
+            <input formControlName="roomNumber" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="price"></label>
+            <input formControlName="price" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="typeOfBuilding"></label>
+            <input formControlName="typeOfBuilding" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="yearOfBuilding"></label>
+            <input formControlName="yearOfBuilding" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label></label>
+                <input formControlName="floorNumber" class="form-control" />
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label></label>
+                <input formControlName="areaLand" class="form-control" />
+                <span class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="totalArea"></label>
+            <input formControlName="totalArea" class="form-control" />
+            <span class="text-danger"></span>
+          </div>    
+        </div>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Address</h5>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="addressStreet"></label>
+              <input formControlName="addressStreet" class="form-control" />
+              <span class="text-danger"></span>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="form-group">
+              <label for="addressNumber"></label>
+              <input formControlName="addressNumber" class="form-control" />
+              <span class="text-danger"></span>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <h5>Property Characteristics</h5>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="condition"></label>
+            <select formControlName="condition" class="form-control">
+              <option value="">Select condition</option>
+              <option value="Good">Good</option>
+              <option value="Average">Average</option>
+              <option value="Requires repair">Requires repair</option>
+              <option value="Free layout">Free layout</option>
+              <option value="Rough finish">Rough finish</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="telephone"></label>
+            <select formControlName="telephone" class="form-control">
+              <option value="">Select telephone</option>
+              <option value="Separate">Separate</option>
+              <option value="Blocker">Blocker</option>
+              <option value="It is possible to connect">It is possible to connect</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="internet"></label>
+            <select formControlName="internet" class="form-control">
+              <option value="">Select internet</option>
+              <option value="ADSL">ADSL</option>
+              <option value="Via TV cable">Via TV cable</option>
+              <option value="Wired">Wired</option>
+              <option value="Optics">Optics</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="bathroom"></label>
+            <select formControlName="bathroom" class="form-control">
+              <option value="">Select bathroom</option>
+              <option value="Separate">Separate</option>
+              <option value="Combined">Combined</option>
+              <option value="2 bathrooms and more">2 bathrooms and more</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="heightOfCeiling"></label>
+            <input formControlName="heightOfCeiling" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="security"></label>
+            <select formControlName="security" class="form-control">
+              <option value="">Select security</option>
+              <option value="Bars on the windows">Bars on the windows</option>
+              <option value="Video surveillance">Video surveillance</option>
+              <option value="Video intercom">Video intercom</option>
+              <option value="Alarm system">Alarm system</option>
+              <option value="Intercom">Intercom</option>
+              <option value="Round-the-clock security">Round-the-clock security</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="different"></label>
+          <select formControlName="different" class="form-control" multiple>
+            <option value="Plastic windows">Plastic windows</option>
+            <option value="Bathhouse">Bathhouse</option>
+            <option value="Swimming pool">Swimming pool</option>
+            <option value="Garden">Garden</option>
+            <option value="Outbuildings">Outbuildings</option>
+            <option value="Canopy">Canopy</option>
+            <option value="Sauna">Sauna</option>
+            <option value="Garage">Garage</option>
+            <option value="Veranda">Veranda</option>
+            <option value="3 phases">3 phases</option>
+          </select>
+          <span class="text-danger"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label></label>
+            <select formControlName="sewageSystem" class="form-control">
+              <option value="">Select sewage system</option>
+              <option value="Central">Central</option>
+              <option value="There is a possibility of summing up">There is a posibility of summing up</option>
+              <option value="Septic">Septic</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label></label>
+            <select formControlName="drinkingWater" class="form-control">
+              <option value="">Select drinking water</option>
+              <option value="Central water supply">Central water supply</option>
+              <option value="It is possible to connect">It is possible to connect</option>
+              <option value="Well">Well</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label></label>
+            <select formControlName="electricity" class="form-control">
+              <option value="">Select electricity</option>
+              <option value="There is electricity">There is electricity</option>
+              <option value="It is possible to connect">It is possible to connect</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label></label>
+            <select formControlName="heating" class="form-control">
+              <option value="">Select heating</option>
+              <option value="Central">Central</option>
+              <option value="Gas">Gas</option>
+              <option value="Solid fuel">Solid fuel</option>
+              <option value="Liquid fuel">Liquid fuel</option>
+              <option value="Mixed">Mixed</option>
+              <option value="Without heating">Without heating</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label></label>
+            <select formControlName="gas" class="form-control">
+              <option value="">Select gas</option>
+              <option value="Main">Main</option>
+              <option value="Autonomous">Autonomous</option>
+              <option value="It is possible to connect">It is possible to connect</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label></label>
+            <input formControlName="roofCovering" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Property images</h5>
+        <div class="form-group">
+          <label for="images"></label>
+          <input type="file" class="form-control" formControlName="images" multiple />
+          <span class="text-danger"></span>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Owner</h5>
+        <div class="form-group">
+          <label for="userId"></label>
+          <input formControlName="userId" value="" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label for="userTelephone"></label>
+          <input formControlName="userTelephone" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label for="userEmail"></label>
+          <input formControlName="userEmail" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <hr class="mt-4" />
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create Property Announcement</button>
+          <button class="btn btn-link">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
