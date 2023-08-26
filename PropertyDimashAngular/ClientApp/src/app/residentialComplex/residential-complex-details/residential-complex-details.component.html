@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">{{residentialComplex.residentialComplexName}}</h2><br />
+    <div><h5 style="font-weight:bold;">Address</h5><br />{{residentialComplex.addressStreet}}, {{residentialComplex.addressNumber}}</div>
+  </div>
+  <div class="row mt-5" *ngIf="residentialComplex.properties.length == 0">
+    <h5>No properties</h5>
+  </div>
+  <div class="row mt-5" *ngIf="residentialComplex.properties.length != 0">
+    <div class="col-4 mr-1 mb-1" *ngFor="let property of residentialComplex.properties">
+      <div class="card" style="width:18rem">
+        <img class="card-img-top" [src]="'data:image/jpeg;base64,' + property.images[0]" alt="Property image" style="aspect-ratio:3/2;object-fit:contain" />
+        <div class="card-body">
+          <h5 class="card-title">Address<br />{{property.addressStreet}}, {{property.addressNumber}}</h5>
+          <p class="card-text">Property type<br />{{property.propertyType}}<br />Year of construction<br />{{property.yearOfBuilding}}<br />Price<br />{{property.price}}</p>
+          <a class="btn border" [routerLink]="['/properties/', property.id, 'details']">See details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

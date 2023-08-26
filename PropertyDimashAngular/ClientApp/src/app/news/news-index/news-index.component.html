@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="navbar navbar-expand-lg" *ngIf="!UserService.roleMatch(['Reporter'])">
+    <div class="navbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" (click)="all()">All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="news()">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="articles()">Articles</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container" [hidden]="isNews" *ngIf="!UserService.roleMatch(['Reporter'])">
+    <h5>News</h5>
+    <hr />
+    <div class="p-2" *ngFor="let news of newsList">
+      <a *ngIf="news.newsType == 'News'" [routerLink]="['/news/', news.id, 'details']" class="row border rounded mb-2 text-dark text-decoration-none">
+        <div class="p-4">
+          <h5>{{news.title}}</h5>
+          <h6>Published {{news.publishedDate}}</h6>
+          <div class="text-truncate">{{news.description}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="container" [hidden]="isArticles" *ngIf="!UserService.roleMatch(['Reporter'])">
+    <h5>Articles</h5>
+    <hr />
+    <div class="p-2" *ngFor="let articles of newsList" >
+      <a *ngIf="articles.newsType == 'Articles'" [routerLink]="['/news/', articles.id, 'details']" class="row border rounded mb-2 text-dark text-decoration-none">
+        <div class="p-4">
+          <h5>{{articles.title}}</h5>
+          <h6>Published {{articles.publishedDate}}</h6>
+          <div class="text-truncate">{{articles.description}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="container" *ngIf="UserService.roleMatch(['Reporter'])">
+    <div class="row mt-5">
+      <div class="col-6 text-center">
+        <h5>News</h5>
+      </div>
+      <div class="col-6">
+        <a [routerLink]="['/news/create']" class="btn border w-100">Create news</a>
+      </div>
+    </div>
+    <table class="table table-striped mt-5">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Published date</th>
+          <th>Reporter</th>
+          <th>News type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let news of newsList" class="text-wrap">
+          <th class="text-break" style="word-break: break-all">{{news.title}}</th>
+          <th class="text-truncate" style="white-space: pre-wrap">{{news.description}}</th>
+          <th>{{news.publishedDate}}</th>
+          <th>{{news.user.firstName}} {{news.user.lastName}}<br /></th>
+          <th>{{news.newsType}}</th>
+          <th>
+            <a class="btn" [routerLink]="['/news/', news.id, 'details']">Details</a>
+            <a class="btn" [routerLink]="['/news/', news.id, 'edit']">Update</a>
+            <button class="btn" (click)="deleteNews(news.id)">Delete</button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

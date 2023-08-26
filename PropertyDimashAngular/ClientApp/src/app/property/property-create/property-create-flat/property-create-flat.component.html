@@ -1,0 +1,316 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit(propertyForm)">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <input formControlName="type" class="form-control" [value]="type">
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6 mb-4">
+          <div class="form-group">
+            <label for="propertyType">Property type</label>
+            <input formControlName="propertyType" class="form-control" [value]="propertyType">
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="roomNumber">Room number</label>
+            <input formControlName="roomNumber" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input formControlName="price" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="typeOfBuilding">Type of building</label>
+            <input formControlName="typeOfBuilding" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="yearOfBuilding">Year of building</label>
+            <input formControlName="yearOfBuilding" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="row">
+            <label>Property floor</label>
+            <div class="col-5">
+              <input formControlName="propertyFloor" class="form-control" />
+              <span class="text-danger"></span>
+            </div>
+            <div class="col-2 text-center">
+              out
+            </div>
+            <div class="col-5">
+              <input formControlName="totalFloor" class="form-control" />
+              <span class="text-danger"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="totalArea">Total area</label>
+            <input formControlName="totalArea" class="form-control" />
+            <span class="text-danger"></span>
+          </div>    
+        </div>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Address</h5>
+        <div class="row">
+          <div class="form-group">
+            <label for="residentialComplex">Residential complex</label>
+            <select formControlName="residentialComplexId" class="form-control" (change)="onChangeResidentialComplex($event.target)">
+              <option *ngFor="let residentialComplex of residentialComplexesList" [value]="residentialComplex.id">{{residentialComplex.residentialComplexName}}</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="addressStreet">Address street</label>
+              <input formControlName="addressStreet" class="form-control" [value]="addressStreet"/>
+              <span class="text-danger"></span>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="form-group">
+              <label for="addressNumber">Address number</label>
+              <input formControlName="addressNumber" class="form-control" [value]="addressNumber"/>
+              <span class="text-danger"></span>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <h5>Property Characteristics</h5>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="condition">Condition</label>
+            <select formControlName="condition" class="form-control">
+              <option value="">Select condition</option>
+              <option value="Good">Good</option>
+              <option value="Average">Average</option>
+              <option value="Requires repair">Requires repair</option>
+              <option value="Free layout">Free layout</option>
+              <option value="Rough finish">Rough finish</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Telephone</label>
+            <select formControlName="telephone" class="form-control">
+              <option value="">Select telephone</option>
+              <option value="Separate">Separate</option>
+              <option value="Blocker">Blocker</option>
+              <option value="It is possible to connect">It is possible to connect</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="internet">Internet</label>
+            <select formControlName="internet" class="form-control">
+              <option value="">Select internet</option>
+              <option value="ADSL">ADSL</option>
+              <option value="Via TV cable">Via TV cable</option>
+              <option value="Wired">Wired</option>
+              <option value="Optics">Optics</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="bathroom">Bathroom</label>
+            <select formControlName="bathroom" class="form-control">
+              <option value="">Select bathroom</option>
+              <option value="Separate">Separate</option>
+              <option value="Combined">Combined</option>
+              <option value="2 bathrooms and more">2 bathrooms and more</option>
+              <option value="No">No</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="heightOfCeiling">Height of ceiling</label>
+            <input formControlName="heightOfCeiling" class="form-control" />
+            <span class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label for="security">Security</label>
+            <select formControlName="security" class="form-control">
+              <option value="">select security</option>
+              <option value="Bars on the windows">Bars on the windows</option>
+              <option value="Intercom">Intercom</option>
+              <option value="Alarm system">Alarm system</option>
+              <option value="Video intercom">Video intercom</option>
+              <option value="Security">Security</option>
+              <option value="Combination lock">Combination lock</option>
+              <option value="Video surveillance">Video surveillance</option>
+              <option value="Concierge">Concierge</option>
+            </select>
+            <span class="text-danger"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="different">Different</label>
+          <select formControlName="different" class="form-control">
+            <option value="">Select different</option>
+            <option value="Plastic windows">Plastic windows</option>
+            <option value="Improved">Improved</option>
+            <option value="Kitchen-studio">Kitchen-studio</option>
+            <option value="New plumbing">New plumbing</option>
+            <option value="Counters">Counters</option>
+            <option value="Conditioner">Conditioner</option>
+            <option value="Non-angular">Non-angular</option>
+            <option value="The rooms are isolated">The rooms are isolated</option>
+            <option value="Built-in kitchen">Built-in kitchen</option>
+            <option value="Storage">Storage</option>
+            <option value="Quiet courtyard">Quiet courtyard</option>
+            <option value="Convenient for commerce">Convenient for commerce</option>
+          </select>
+          <span class="text-danger"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="balcony">Balcony</label>
+                <select formControlName="balcony" class="form-control">
+                  <option value="">Select balcony</option>
+                  <option value="Balcony">Balcony</option>
+                  <option value="Loggia">Loggia</option>
+                  <option value="Balcony and loggia">Balcony and loggia</option>
+                  <option value="Several balconies and loggias">Several balconies and loggias</option>
+                </select>
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label>Balcony glazed</label>
+                <select formControlName="balconyGlazed" class="form-control">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+                <span class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label>Door</label>
+              <select formControlName="door" class="form-control">
+                <option value="">Select door</option>
+                <option value="Wooden">Wooden</option>
+                <option value="Metal">Metal</option>
+                <option value="Armored">Armored</option>
+              </select>
+              <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label>Parking</label>
+              <select formControlName="parking" class="form-control">
+                <option value="">Select parking</option>
+                <option value="Parking">Parking</option>
+                <option value="Garage">Garage</option>
+                <option value="There is a guarded parking lot nearby">There is a guarded parking lot nearby</option>
+              </select>
+              <span class="text-danger"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="form-group">
+              <label>Property furnished</label>
+              <select formControlName="propertyFurnished" class="form-control">
+                <option value="">Select property furnished</option>
+                <option value="Completely">Completely</option>
+                <option value="Partly">Partly</option>
+                <option value="Unfurnished">Unfurnished</option>
+              </select>
+              <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label>Floor</label>
+              <select formControlName="floor" class="form-control">
+                <option value="">Select floor</option>
+                <option value="Linoleum">Linoleum</option>
+                <option value="Parquet">Parquet</option>
+                <option value="Laminate">Laminate</option>
+                <option value="Wood">Wood</option>
+                <option value="Carpet">Carpet</option>
+                <option value="Tile">Tile</option>
+                <option value="Cork">Cork</option>
+              </select>
+              <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label>Former dormitory</label>
+              <select formControlName="formerDormitory" class="form-control">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+              <span class="text-danger"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Property images</h5>
+        <app-property-image (onUploadFinished)="uploadFinished($event)"></app-property-image>
+      </div>
+      <div class="row mt-4">
+        <hr />
+        <h5>Owner</h5>
+        <div class="form-group">
+          <label for="userId">User id</label>
+          <input formControlName="userId" [value]="userId" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label for="userTelephone">User telephone</label>
+          <input formControlName="userTelephone" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">User email</label>
+          <input formControlName="userEmail" [value]="userEmail" class="form-control" />
+          <span class="text-danger"></span>
+        </div>
+        <hr class="mt-4" />
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create Property Announcement</button>
+          <button class="btn btn-link">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

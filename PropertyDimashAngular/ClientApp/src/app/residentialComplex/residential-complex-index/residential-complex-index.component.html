@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row" *ngIf="UserService.roleMatch(['Admin', 'Moderator'])">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Residential complex</th>
+          <th>Number of properties</th>
+          <th>Properties</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let residentialComplex of residentialComplexes">
+          <td>{{ residentialComplex.id }}</td>
+          <td>{{ residentialComplex.residentialComplexName }}<br />{{residentialComplex.addressStreet}}, {{residentialComplex.addressNumber}}</td>
+          <td>{{residentialComplex.properties.length}}</td>
+          <td *ngIf="residentialComplex.properties.length == 0">No properties</td>
+          <td *ngIf="residentialComplex.properties.length != 0"><span *ngFor="let property of residentialComplex.properties"><a [routerLink]="['/properties/', property.id, 'details']">{{property.id}}</a><br /></span></td>
+          <td>
+            <a [routerLink]="['/residential-complexes/', residentialComplex.id, 'details']" class="btn border">Details</a>
+            <button type="button" (click)="deleteResidentialComplex(residentialComplex.id)" class="btn border">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container" *ngIf="!UserService.roleMatch(['Admin', 'Moderator'])">
+    <div class="row">
+      <a class="card residential-complex" style="width: 21rem;" *ngFor="let residentialComplex of residentialComplexes" [routerLink]="['/residential-complexes/', residentialComplex.id, 'details']">
+        <div class="card-body">
+          <h5 class="card-title">Residential complex: {{residentialComplex.residentialComplexName}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Address: {{residentialComplex.addressStreet}}<span>,</span>, {{residentialComplex.addressNumber}}</h6>
+          <a [routerLink]="" class="card-link">See details</a>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
