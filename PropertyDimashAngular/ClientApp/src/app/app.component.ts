@@ -9,5 +9,9 @@ import { BehaviorSubject } from 'rxjs';
 export class AppComponent {
   title = 'app';
   loginStatus = new BehaviorSubject<boolean>(false);
-  constructor(private UserService: UserService) { this.UserService.setLogin(this.loginStatus); localStorage.setItem('UserName', ' '); localStorage.setItem('UserId', ' '); }
+  constructor(private UserService: UserService) {
+    this.UserService.setLogin(this.loginStatus);
+    localStorage.setItem('UserName', '-');
+    localStorage.setItem('UserId', '-');
+  }
 }
